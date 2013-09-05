@@ -53,3 +53,21 @@ end
 service "cassandra" do
   action [ :enable, :start ]
 end
+
+# Backup with BURP
+if node.recipe?("burp")
+  cookbook_file "/etc/burp/pre.d/cassandra-backup-0-sh" do
+    mode 0755
+    owner "root"
+    source "backup.sh"
+  end
+  cookbook_file "/etc/burp/post.d/cassandra-backup-0-sh" do
+    mode 0755
+    owner "root"
+    source "post-backup.sh"
+  end
+end
+
+
+
+
