@@ -18,7 +18,7 @@ end
 package "dsc12"
 
 # Set myself as seed if no other
-if search(:node, "cassandra_seed:true AND chef_environment:#{node.chef_environment}")
+if search(:node, "cassandra_seed:true AND chef_environment:#{node.chef_environment}").empty?
   node.set[:cassandra][:seed] = true
   node.save
 end
