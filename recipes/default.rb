@@ -15,7 +15,7 @@ apt_repository "cassandra" do
   key "http://debian.datastax.com/debian/repo_key"
 end
 
-package "dsc12"
+package "dsc20"
 
 # Set myself as seed if no other
 if search(:node, "cassandra_seed:true AND chef_environment:#{node.chef_environment}").empty?
@@ -31,7 +31,7 @@ seeds.each do |s|
 end
 
 template "/etc/cassandra/cassandra.yaml" do
-  source "cassandra.yaml.erb"
+  source "cassandra-2.yaml.erb"
   owner "root"
   group "root"
   mode 0644
