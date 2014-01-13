@@ -5,8 +5,8 @@ set -u
 
 if [ "$(date +%u)" =  "1" ]
 then
-  nodetool repair
+  /usr/local/bin/nodetool repair
 fi
 
-nodetool clearsnapshot -t burp
+/usr/local/bin/nodetool clearsnapshot -t burp
 

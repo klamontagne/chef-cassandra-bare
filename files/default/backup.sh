@@ -3,9 +3,9 @@
 set -e
 set -u
 
-nodetool clearsnapshot -t burp || true
+/usr/local/bin/nodetool clearsnapshot -t burp || true
 
 sleep 5
 
-nodetool snapshot -t burp
+/usr/local/bin/nodetool snapshot -t burp
 
